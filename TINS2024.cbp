@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="TINS2024" />
+		<Option pch_mode="2" />
+		<Option default_target="Debug" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="KH23D" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="./" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-DDEBUG" />
+				</Compiler>
+				<Linker>
+					<Add option="-lEagleA5DebugShared.dll" />
+					<Add option="-lEagleDebugShared.dll" />
+					<Add option="-lallegro_monolith-debug.dll" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="KH23" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="./" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-lEagleA5Shared.dll" />
+					<Add option="-lEagleShared.dll" />
+					<Add option="-lallegro_monolith.dll" />
+				</Linker>
+			</Target>
+			<Target title="StaticDebug">
+				<Option output="KH23DS" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="./" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-DDEBUG" />
+				</Compiler>
+				<Linker>
+					<Add option="-lEagleA5Debug" />
+					<Add option="-lEagleDebug" />
+					<Add option="-lallegro_monolith-static" />
+					<Add option="-ldumb" />
+					<Add option="-lphysfs" />
+					<Add option="-lOpenAL32" />
+					<Add option="-lwebp" />
+					<Add option="-lFLAC" />
+					<Add option="-lvorbisfile" />
+					<Add option="-lvorbis" />
+					<Add option="-lfreetype" />
+					<Add option="-logg" />
+					<Add option="-lpng16" />
+					<Add option="-lzlibstatic" />
+					<Add option="-lgdiplus" />
+					<Add option="-luuid" />
+					<Add option="-lkernel32" />
+					<Add option="-lwinmm" />
+					<Add option="-lpsapi" />
+					<Add option="-lopengl32" />
+					<Add option="-lglu32" />
+					<Add option="-ldsound" />
+					<Add option="-lsharpyuv" />
+					<Add option="-luser32" />
+					<Add option="-lcomdlg32" />
+					<Add option="-lgdi32" />
+					<Add option="-lshell32" />
+					<Add option="-lole32" />
+					<Add option="-ladvapi32" />
+					<Add option="-lws2_32" />
+					<Add option="-lshlwapi" />
+					<Add option="-lpthread" />
+					<Add option="-static-libstdc++" />
+					<Add option="-static-libgcc" />
+				</Linker>
+			</Target>
+			<Target title="StaticRelease">
+				<Option output="KH23S" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="./" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-static-libstdc++" />
+					<Add option="-static-libgcc" />
+					<Add option="-lEagleA5" />
+					<Add option="-lEagle" />
+					<Add option="-lallegro_monolith-static" />
+					<Add option="-ldumb" />
+					<Add option="-lphysfs" />
+					<Add option="-lOpenAL32" />
+					<Add option="-lwebp" />
+					<Add option="-lFLAC" />
+					<Add option="-lvorbisfile" />
+					<Add option="-lvorbis" />
+					<Add option="-lfreetype" />
+					<Add option="-logg" />
+					<Add option="-lsharpyuv" />
+					<Add option="-lpng16" />
+					<Add option="-lzlibstatic" />
+					<Add option="-lgdiplus" />
+					<Add option="-luuid" />
+					<Add option="-lkernel32" />
+					<Add option="-ldsound" />
+					<Add option="-lwinmm" />
+					<Add option="-lpsapi" />
+					<Add option="-lopengl32" />
+					<Add option="-lglu32" />
+					<Add option="-luser32" />
+					<Add option="-lcomdlg32" />
+					<Add option="-lgdi32" />
+					<Add option="-lshell32" />
+					<Add option="-lole32" />
+					<Add option="-ladvapi32" />
+					<Add option="-lws2_32" />
+					<Add option="-lshlwapi" />
+					<Add option="-lpthread" />
+				</Linker>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="Debug;Release;StaticDebug;StaticRelease;" />
+			<Add alias="Dynamic" targets="Debug;Release;" />
+			<Add alias="Static" targets="StaticDebug;StaticRelease;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-DEAGLE_LOG" />
+			<Add option="-DEAGLE_ASSERT_EXCEPTION" />
+			<Add option="-DDEBUG" />
+			<Add directory="include" />
+			<Add directory="E:/usr64/include" />
+		</Compiler>
+		<Linker>
+			<Add directory="E:/usr64/lib" />
+		</Linker>
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>
