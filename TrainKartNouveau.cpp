@@ -82,13 +82,10 @@ int main(int argc , char** argv) {
             redraw = true;
             editor->Update(e.timer.eagle_timer_source->SPT());
          }
-         else {
-            int status = editor->HandleEvent(e);
-            if (status == STATUS_QUIT) {
-               quit = true;
-            }
+         int status = editor->HandleEvent(e);
+         if (status == STATUS_QUIT) {
+            quit = true;
          }
-         
       } while (!sys->UpToDate());
    }
 
