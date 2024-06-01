@@ -27,9 +27,18 @@ int main(int argc , char** argv) {
    (void)argc;
    (void)argv;
 
+   
+
+
    Allegro5System* sys = GetAllegro5System();
    EAGLE_ASSERT(sys);
 
+   int ret = sys->Initialize(EAGLE_FULL_SETUP);
+   if (ret != EAGLE_FULL_SETUP) {
+      EagleWarn() << PrintFailedEagleInitStates(EAGLE_FULL_SETUP , ret) << std::endl;
+   }
+//   EAGLE_ASSERT(ret == EAGLE_FULL_SETUP);
+   
    // our windowed fallback size
    int scrw = 1280;
    int scrh = 800;
@@ -44,6 +53,8 @@ int main(int argc , char** argv) {
 
    bool ok = BasicGLSetup();
    EAGLE_ASSERT(ok);
+
+   EagleFont* afont = win->GetFont("Data/Fonts/Orangerie.otf" , -48);
 
    Editor e;
    Editor* editor = &e;
