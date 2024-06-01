@@ -130,7 +130,7 @@ public :
    void RenderFacesFront        (const SpatialInfo info = SpatialInfo() , const Vec3 scale = Vec3(1,1,1)) const;
    void RenderFacesBack         (const SpatialInfo info = SpatialInfo() , const Vec3 scale = Vec3(1,1,1)) const;
 
-   void RenderEdges             (const ALLEGRO_COLOR col , const SpatialInfo info = SpatialInfo() , Vec3 scale = Vec3(1,1,1)) const;
+   void RenderEdges             (const EagleColor col , const SpatialInfo info = SpatialInfo() , Vec3 scale = Vec3(1,1,1)) const;
 
    void ClearAll();
 };

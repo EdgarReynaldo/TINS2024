@@ -4,7 +4,7 @@
 
 #include "Track.hpp"
 #include "Drawing.hpp"
-#include "Exception.hpp"
+#include "Eagle/Exception.hpp"
 
 
 
@@ -165,7 +165,7 @@ bool Track::GenerateTrackMesh() {
          const Vec3 zrinfo2a = rinfo2a.pos + dnlocal2a*TRACK_THICKNESS;
          const Vec3 zrinfo2b = rinfo2b.pos + dnlocal2b*TRACK_THICKNESS;
          
-         const ALLEGRO_COLOR col = al_map_rgba(255,255,255,255);
+         const EagleColor col(255,255,255,255);
          
          const VERTEX vtx[8] = {
             Vertex(rinfo1a.pos , col),
@@ -204,10 +204,10 @@ bool Track::GenerateTrackMesh() {
          
          /// Side mesh
          
-         const ALLEGRO_COLOR lsidecol = al_map_rgba(255,255,0,255);
-         const ALLEGRO_COLOR rsidecol = al_map_rgba(255,127,0,255);
-         const ALLEGRO_COLOR fsidecol = al_map_rgba(0,255,0,255);
-         const ALLEGRO_COLOR bsidecol = al_map_rgba(255,0,0,255);
+         const EagleColor lsidecol(255,255,0,255);
+         const EagleColor rsidecol(255,127,0,255);
+         const EagleColor fsidecol(0,255,0,255);
+         const EagleColor bsidecol(255,0,0,255);
          
          /// Front 
          if (i1 == 0) {
@@ -317,7 +317,7 @@ bool Track::BuildTrack() {
 void Track::Draw() {
 ///   DrawTrackOutlines(*this);
 
-   const ALLEGRO_COLOR edgecol1 = al_map_rgba(0,255,255,255);
+   const EagleColor edgecol1(0,255,255,255);
 
    leftmesh.RenderFacesFront();
    leftmesh.RenderEdges(edgecol1);
@@ -329,7 +329,7 @@ void Track::Draw() {
    backmesh.RenderEdges(edgecol1);
 
    lowermesh.RenderFacesFront();
-   lowermesh.RenderEdges(al_map_rgba(0,0,0,255));
+   lowermesh.RenderEdges(EagleColor(0,0,0,255));
 
 //   glEnable(GL_TEXTURE_2D);
    uppermesh.RenderTexturedFacesFront();

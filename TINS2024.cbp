@@ -8,7 +8,7 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="KH23D" prefix_auto="1" extension_auto="1" />
+				<Option output="TrainKartD" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="./" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
@@ -24,7 +24,7 @@
 				</Linker>
 			</Target>
 			<Target title="Release">
-				<Option output="KH23" prefix_auto="1" extension_auto="1" />
+				<Option output="TrainKart" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="./" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
@@ -39,7 +39,7 @@
 				</Linker>
 			</Target>
 			<Target title="StaticDebug">
-				<Option output="KH23DS" prefix_auto="1" extension_auto="1" />
+				<Option output="TrainKartDS" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="./" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
@@ -86,7 +86,7 @@
 				</Linker>
 			</Target>
 			<Target title="StaticRelease">
-				<Option output="KH23S" prefix_auto="1" extension_auto="1" />
+				<Option output="TrainKartS" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="./" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
@@ -144,10 +144,10 @@
 			<Add option="-DEAGLE_ASSERT_EXCEPTION" />
 			<Add option="-DDEBUG" />
 			<Add directory="include" />
-			<Add directory="E:/usr64/include" />
+			<Add directory="c:/usr64/include" />
 		</Compiler>
 		<Linker>
-			<Add directory="E:/usr64/lib" />
+			<Add directory="c:/usr64/lib" />
 		</Linker>
 		<Unit filename="LICENSE" />
 		<Unit filename="README.md" />
@@ -162,10 +162,8 @@
 		<Unit filename="include/Editor.hpp" />
 		<Unit filename="include/Exception.hpp" />
 		<Unit filename="include/FileWork.hpp" />
-		<Unit filename="include/Input.hpp" />
 		<Unit filename="include/Interpolate.hpp" />
 		<Unit filename="include/Intro.hpp" />
-		<Unit filename="include/Math.hpp" />
 		<Unit filename="include/Mesh.hpp" />
 		<Unit filename="include/Move.hpp" />
 		<Unit filename="include/ObjModel.hpp" />
@@ -177,7 +175,6 @@
 		<Unit filename="include/Shader.hpp" />
 		<Unit filename="include/Skybox.hpp" />
 		<Unit filename="include/SpatialInfo.hpp" />
-		<Unit filename="include/StringWork.hpp" />
 		<Unit filename="include/Texture.hpp" />
 		<Unit filename="include/Track.hpp" />
 		<Unit filename="include/TrackGen.hpp" />
@@ -197,7 +194,6 @@
 		<Unit filename="src/Editor.cpp" />
 		<Unit filename="src/Exception.cpp" />
 		<Unit filename="src/FileWork.cpp" />
-		<Unit filename="src/Input.cpp" />
 		<Unit filename="src/Interpolate.cpp" />
 		<Unit filename="src/Intro.cpp" />
 		<Unit filename="src/Mesh.cpp" />
@@ -211,7 +207,6 @@
 		<Unit filename="src/Shader.cpp" />
 		<Unit filename="src/Skybox.cpp" />
 		<Unit filename="src/SpatialInfo.cpp" />
-		<Unit filename="src/StringWork.cpp" />
 		<Unit filename="src/Texture.cpp" />
 		<Unit filename="src/Track.cpp" />
 		<Unit filename="src/TrackGen.cpp" />

@@ -3,8 +3,8 @@
 
 
 #include "TrackGen.hpp"
-#include "Exception.hpp"
-#include "Math.hpp"
+#include "Eagle/Exception.hpp"
+#include "Eagle/Math.hpp"
 
 
 

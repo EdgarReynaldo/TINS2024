@@ -3,8 +3,8 @@
 
 
 #include "CrossSectionGen.hpp"
-#include "Exception.hpp"
-#include "Math.hpp"
+#include "Eagle/Exception.hpp"
+#include "Eagle/Math.hpp"
 
 
 #include "allegro5/allegro_primitives.h"

@@ -7,9 +7,9 @@
 
 
 #include "allegro5/allegro.h"
-
+#include "Vec2.hpp"
 #include "Vec3.hpp"
-
+#include "Eagle/Color.hpp"
 
 
 

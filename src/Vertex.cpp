@@ -5,20 +5,19 @@
 #include "Vertex.hpp"
 
 
-
 Vertex::Vertex(Vec3 p) :
       pos(p),
       nml(),
 //         edge_list(),
-      col(al_map_rgba(255,255,255,255)) 
+      col(255,255,255,255) 
 {}
-Vertex::Vertex(Vec3 p , ALLEGRO_COLOR c) :
+Vertex::Vertex(Vec3 p , EagleColor c) :
       pos(p),
       nml(),
 //         edge_list(),
       col(c)
 {}
-Vertex::Vertex(Vec3 p , Vec3 n , ALLEGRO_COLOR c) :
+Vertex::Vertex(Vec3 p , Vec3 n , EagleColor c) :
       pos(p),
       nml(n),
 //         edge_list(),

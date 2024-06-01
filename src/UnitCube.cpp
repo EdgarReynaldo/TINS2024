@@ -12,7 +12,7 @@
 void UnitCube::CreateMesh() {
    
    /// A cube has 8 vertices
-   ALLEGRO_COLOR white = al_map_rgb(255,255,255);
+   EagleColor white(255,255,255,255);
    
    const unsigned int LBB = cube.AddVertex(VERTEX(Vec3(-0.5 , -0.5 ,  0.5) , white)); 
    const unsigned int LBF = cube.AddVertex(VERTEX(Vec3(-0.5 , -0.5 , -0.5) , white)); 
@@ -77,7 +77,7 @@ UnitCube::UnitCube() :
 void TexturedUnitCube::CreateTexturedMesh() {
 
    /// A cube has 8 vertices
-   ALLEGRO_COLOR white = al_map_rgb(255,255,255);
+   EagleColor white(255,255,255,255);
 
    const Vec3 lbb(-0.5 , -0.5 , -0.5);
    const Vec3 lbf(-0.5 , -0.5 ,  0.5);

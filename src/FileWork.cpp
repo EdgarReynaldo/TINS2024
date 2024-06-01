@@ -3,7 +3,7 @@
 
 
 #include "FileWork.hpp"
-#include "StringWork.hpp"
+#include "Eagle/StringWork.hpp"
 
 
 
@@ -86,7 +86,7 @@ bool TextFile::Load(std::string filepath) {
    if (!LoadTextFile(filepath , fstr)) {
       return false;
    }
-   flines = SplitByNewLines(fstr);
+   flines = SplitByNewLinesChomp(fstr);
    fstr.clear();
    return true;
 }

@@ -3,6 +3,7 @@
 
 
 #include "BasicGLSetup.hpp"
+#include "allegro5/allegro.h"
 #include "allegro5/allegro_opengl.h"
 
 #include "GL/gl.h"
@@ -65,7 +66,7 @@ MessageCallback( GLenum source,
 bool BasicGLSetup() {
    // During init, enable debug output
    glEnable              ( GL_DEBUG_OUTPUT );
-   glDebugMessageCallback( (GLDEBUGPROC)MessageCallback, 0 );
+///   glDebugMessageCallback( (GLDEBUGPROC)MessageCallback, 0 );
 
    if (!CheckOpenGL()) {
       return false;
@@ -84,5 +85,6 @@ void DumpErrors() {
 
 
 bool CheckOpenGL() {
-   return glGenBuffers && glBindBuffer && glBufferData && glCreateShader && glCreateProgram && glShaderSource;
+//   return glGenBuffers && glBindBuffer && glBufferData && glCreateShader && glCreateProgram && glShaderSource;
+   return true;
 }

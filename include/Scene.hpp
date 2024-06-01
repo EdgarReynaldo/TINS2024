@@ -6,7 +6,7 @@
 #define Scene_HPP
 
 
-#include "allegro5/allegro.h"
+#include "Eagle/Events.hpp"
 
 
 enum STATUS {
@@ -16,22 +16,17 @@ enum STATUS {
 
 
 
+
+
+class EagleGraphicsContext;
+
 class Scene {
-   
-protected :
-   bool redraw;
-   
 public :
-   
-   Scene() : redraw(true) {}
    virtual ~Scene() {}
    
-   
-   virtual STATUS HandleEvent(ALLEGRO_EVENT ev)=0;
-   virtual void Display()=0;
+   virtual STATUS HandleEvent(EagleEvent ev)=0;
+   virtual void Display(EagleGraphicsContext* win)=0;
    virtual STATUS Update(double dt)=0;
-   
-   inline bool Redraw() {return redraw;}
 };
 
 

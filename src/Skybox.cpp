@@ -2,8 +2,8 @@
 
 
 
+#include "Eagle/Exception.hpp"
 #include "Skybox.hpp"
-#include "Exception.hpp"
 
 
 

@@ -4,7 +4,7 @@
 
 #include "CrossSection.hpp"
 #include "Interpolate.hpp"
-#include "Math.hpp"
+#include "Eagle/Math.hpp"
 
 
 

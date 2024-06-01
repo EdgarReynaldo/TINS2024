@@ -1,6 +1,5 @@
-
 /**
-My entry for TINS 2024.
+My entry for TINS 2024. Copyright Edgar Reynaldo, 2024+
 
 Rules are :
 1. Trains
@@ -14,27 +13,14 @@ You'll note I made it part of the name just to do it anyway.
 
 */
 
-
-
-
-
-
 #include "Eagle.hpp"
 #include "Eagle/backends/Allegro5Backend.hpp"
 #include "allegro5/allegro.h"
 #include "allegro5/allegro_opengl.h"
 #include "GL/gl.h"
 
-
-
-
-
-
-
-
-
-
-
+#include "Scene.hpp"
+#include "Editor.hpp"
 
 int main(int argc , char** argv) {
 
@@ -48,7 +34,7 @@ int main(int argc , char** argv) {
    int scrw = 1280;
    int scrh = 800;
 
-   Allegro5GraphicsContext* win = dynamic_cast<Allegro5GraphicsContext*>(sys->CreateGraphicsContext(scrw , scrh , EAGLE_OPENGL | EAGLE_FULLSCREEN_WINDOW));
+   Allegro5GraphicsContext* win = dynamic_cast<Allegro5GraphicsContext*>(sys->CreateGraphicsContext("TrainKart" , scrw , scrh , EAGLE_OPENGL | EAGLE_FULLSCREEN_WINDOW));
 
    EAGLE_ASSERT(win);
 
@@ -59,16 +45,41 @@ int main(int argc , char** argv) {
    bool ok = BasicGLSetup();
    EAGLE_ASSERT(ok);
 
-
-
-
-
-
-
-
-
-
-   sys->Rest(3.0);
+   Editor e;
+   Editor* editor = &e;
+   
+   bool quit = false;
+   bool redraw = true;
+   
+   sys->GetSystemTimer()->Start();
+   
+   while (!quit) {
+      
+      if (redraw) {
+         win->Clear();
+         editor->Display(win);
+         win->FlipDisplay();
+         redraw = false;
+      }
+      
+      do {
+         EagleEvent e = sys->WaitForSystemEventAndUpdateState();
+         
+         if (e.type == EAGLE_EVENT_DISPLAY_CLOSE) {quit = true;break;}
+         if (e.type == EAGLE_EVENT_KEY_DOWN && e.keyboard.keycode == EAGLE_KEY_ESCAPE) {quit = true;}
+         if (e.type == EAGLE_EVENT_TIMER) {
+            redraw = true;
+            editor->Update(e.timer.eagle_timer_source->SPT());
+         }
+         else {
+            int status = editor->HandleEvent(e);
+            if (status == STATUS_QUIT) {
+               quit = true;
+            }
+         }
+         
+      } while (!sys->UpToDate());
+   }
 
    return 0;
 }

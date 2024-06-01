@@ -4,20 +4,14 @@
 
 #include "Camera.hpp"
 
-//#include "BasicAllegro.hpp"/// TODO : This header doesn't work right with Camera.cpp
-extern int sw,sh;
+#include "Eagle/Math.hpp"
 #include "allegro5/allegro.h"
-extern ALLEGRO_DISPLAY* d;
-
-
-#include "Math.hpp"
-
 
 
 Camera::Camera() :
       info(START),
       hfov(6.0*M_PI/12.0),/// In RADIANS (PI/2 (90 degrees) looks best, with the least distortion)
-      aspect((double)sw/sh),
+      aspect(16.0/9.0),
       ortho(false)
 {}
 
@@ -68,7 +62,7 @@ void Camera::Setup3D(bool orthographic) {
 void Camera::Setup2D() {
    ALLEGRO_TRANSFORM tr;
    al_identity_transform(&tr);
-   al_orthographic_transform(&tr , 0 , 0 , -1.0 , al_get_display_width(d) , al_get_display_height(d) , 1.0);
+   al_orthographic_transform(&tr , 0 , 0 , -1.0 , al_get_display_width(al_get_current_display()) , al_get_display_height(al_get_current_display()) , 1.0);
    al_use_projection_transform(&tr);
    
    al_identity_transform(&tr);

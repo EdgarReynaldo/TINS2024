@@ -2,13 +2,12 @@
 
 
 
-#include "Mesh.hpp"
-#include "Exception.hpp"
-
+#include "Eagle/backends/Allegro5Backend.hpp"
 #include "allegro5/allegro_opengl.h"
 #include "GL/gl.h"
+#include "Mesh.hpp"
+#include "BasicGLSetup.hpp"
 
-#include "BasicAllegro.hpp"
 
 
 
@@ -412,9 +411,8 @@ void Mesh::RenderFacesFront(const SpatialInfo info , const Vec3 scale) const {
       
       eglBegin(GL_TRIANGLES);
       for (unsigned int i = 0 ; i < 3 ; ++i) {
-         unsigned char c[4] = {0};
-         al_unmap_rgba(v[i]->col , &c[0] , &c[1] , &c[2] , &c[3]);
-         glColor4ub(c[0] , c[1] , c[2] , c[3]);
+         EagleColor c = v[i]->col;
+         glColor4ub(c.r , c.g , c.b , c.a);
          glVertex3d(v[i]->pos.x , v[i]->pos.y , v[i]->pos.z);
 ///         glNormal3d(v[i].nml.x , v[i].nml.y , v[i].nml.z);
       }
@@ -429,8 +427,7 @@ void Mesh::RenderFacesFront(const SpatialInfo info , const Vec3 scale) const {
 void Mesh::RenderTexturedFacesFront(const SpatialInfo info , const Vec3 scale) const {
    ALLEGRO_TRANSFORM old = SetupTransform(info , scale);
 //      glEnable(GL_COLOR);
-      glGetError();
-      bpoint = true;
+   glGetError();
 
    glEnable(GL_TEXTURE_2D);
 
@@ -451,9 +448,8 @@ void Mesh::RenderTexturedFacesFront(const SpatialInfo info , const Vec3 scale) c
       
       eglBegin(GL_TRIANGLES);
       for (unsigned int i = 0 ; i < 3 ; ++i) {
-         unsigned char c[4] = {0};
-         al_unmap_rgba(v[i]->col , &c[0] , &c[1] , &c[2] , &c[3]);
-         glColor4ub(c[0] , c[1] , c[2] , c[3]);
+         EagleColor c = v[i]->col;
+         glColor4ub(c.r , c.g , c.b , c.a);
          glTexCoord2d(texverts[texfaces[i]].uv.u , texverts[texfaces[i]].uv.v);
          glVertex3d(v[i]->pos.x , v[i]->pos.y , v[i]->pos.z);
 ///         glNormal3d(v[i].nml.x , v[i].nml.y , v[i].nml.z);
@@ -478,9 +474,8 @@ void Mesh::RenderFacesBack(const SpatialInfo info , const Vec3 scale) const {
       const VERTEX* v[3] = {&vertices[face.v3] , &vertices[face.v2] , &vertices[face.v1]};
       
       for (unsigned int i = 0 ; i < 3 ; ++i) {
-         unsigned char c[4] = {0};
-         al_unmap_rgba(v[i]->col , &c[0] , &c[1] , &c[2] , &c[3]);
-         glColor4ub(c[0] , c[1] , c[2] , c[3]);
+         EagleColor c = v[i]->col;
+         glColor4ub(c.r , c.g , c.b , c.a);
          glVertex3d(v[i]->pos.x , v[i]->pos.y , v[i]->pos.z);
 ///         glNormal3d(v[i].nml.x , v[i].nml.y , v[i].nml.z);
       }
@@ -492,15 +487,12 @@ void Mesh::RenderFacesBack(const SpatialInfo info , const Vec3 scale) const {
 
 
 
-void Mesh::RenderEdges(ALLEGRO_COLOR col , const SpatialInfo info , const Vec3 scale) const {
+void Mesh::RenderEdges(const EagleColor col , const SpatialInfo info , const Vec3 scale) const {
 
    ALLEGRO_TRANSFORM old = SetupTransform(info , scale);
    
-   unsigned char rgba[4];
-   al_unmap_rgba(col , &rgba[0] , &rgba[1] , &rgba[2] , &rgba[3]);
-//      glEnable(GL_COLOR);
    eglBegin(GL_LINES);
-   glColor4ub(rgba[0] , rgba[1] , rgba[2] , rgba[3]);
+   glColor4ub(col.r , col.g , col.b , col.a);
    for (unsigned int e = 0 ; e < edges.size() ; ++e) {
       const EDGE& edge = edges[e];
       const VERTEX& v1 = vertices[edge.vfrom];

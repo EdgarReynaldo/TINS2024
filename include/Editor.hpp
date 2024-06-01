@@ -18,10 +18,6 @@ class Editor : public Scene {
 protected :
    Camera cam;
    Track track1;
-   Track track2;
-   Track track3;
-   Track track4;
-   Track track5;
    
    double cam_speed;
    double cam_turn_rate;
@@ -33,9 +29,9 @@ public :
 //   Editor();
    Editor();
    
-   virtual STATUS HandleEvent(ALLEGRO_EVENT ev);
-   virtual void Display();
-   virtual STATUS Update(double dt);
+   STATUS HandleEvent(EagleEvent ev) override;
+   void Display(EagleGraphicsContext* win) override;
+   STATUS Update(double dt) override;
 };
 
 

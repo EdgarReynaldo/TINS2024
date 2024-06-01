@@ -6,17 +6,16 @@
 #define Skybox_HPP
 
 
-#include "Cube.hpp"
+#include "UnitCube.hpp"
+
 #include "allegro5/allegro.h"
 #include "allegro5/allegro_opengl.h"
 
-
-#include "Cube.hpp"
+#include "BasicGLSetup.hpp"
 
 #include "GL/gl.h"
 #include "GL/glu.h"
 
-#define GL_CLAMP_TO_EDGE 0x812F
 
 class Skybox {
    

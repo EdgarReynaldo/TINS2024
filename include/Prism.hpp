@@ -6,7 +6,7 @@
 #define Prism_HPP
 
 
-#include "Cube.hpp"
+#include "UnitCube.hpp"
 
 
 
